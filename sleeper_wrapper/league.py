@@ -125,10 +125,10 @@ class League(BaseApi):
 				close_games_dict[key] = scoreboards[key]
 		return close_games_dict
 
-	def get_team_score(self,starters, score_type, week):
+	def get_team_score(self,starters, score_type, week, year=2020):
 		total_score = 0
 		stats = Stats()
-		week_stats = stats.get_week_stats("regular", 2019, week)
+		week_stats = stats.get_week_stats("regular", year, week)
 		for starter in starters:
 			if stats.get_player_week_stats(week_stats, starter) is not None:
 				try:
